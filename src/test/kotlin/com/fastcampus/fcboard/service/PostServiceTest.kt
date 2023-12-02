@@ -63,18 +63,10 @@ class PostServiceTest(
                 updated shouldNotBe null
                 updated?.title shouldBe "update title"
                 updated?.content shouldBe "update content"
-                updated?.updatedBy shouldBe "update whahn"
+                updated?.updatedBy shouldBe "whahn"
             }
         }
         When("게시글을 찾을 수 없을 때") {
-            postService.updatePost(
-                9999L,
-                PostUpdateRequestDto(
-                    title = "update title",
-                    content = "update content",
-                    updatedBy = "whahn"
-                )
-            )
             then("게시글을 찾을 수 없다라는 예외가 발생한다") {
                 shouldThrow<PostNotFoundException> {
                     postService.updatePost(
@@ -92,11 +84,11 @@ class PostServiceTest(
             then("수정할 수 없는 게시물입니다 예외가 발생한다") {
                 shouldThrow<PostNotUpdatableException> {
                     postService.updatePost(
-                        9999L,
+                        saved.id,
                         PostUpdateRequestDto(
                             title = "update title",
                             content = "update content",
-                            updatedBy = "whahn"
+                            updatedBy = "update whahn"
                         )
                     )
                 }
@@ -130,7 +122,7 @@ class PostServiceTest(
             )
             then("삭제할 수 없는 게시물입니다 예외가 발생한다") {
                 shouldThrow<PostNotDeletableException> {
-                    postService.deletePost(saved2.id, "whahn")
+                    postService.deletePost(saved2.id, "delete whahn")
                 }
             }
         }
