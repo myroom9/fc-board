@@ -1,6 +1,6 @@
-package com.fastcampus.fcboard.dto
+package com.fastcampus.fcboard.service.dto
 
-data class PostUpdateRequest(
+data class PostUpdateRequestDto(
     val title: String,
     val content: String,
     val updatedBy: String

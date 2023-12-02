@@ -1,4 +1,4 @@
-package com.fastcampus.fcboard.dto
+package com.fastcampus.fcboard.controller.dto
 
 data class PostSummaryResponse(
     val id: Long,

@@ -1,4 +1,4 @@
-package com.fastcampus.fcboard.dto
+package com.fastcampus.fcboard.controller.dto
 
 import org.springframework.web.bind.annotation.RequestParam
 
