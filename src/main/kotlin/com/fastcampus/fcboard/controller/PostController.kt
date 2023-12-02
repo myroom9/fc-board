@@ -19,7 +19,6 @@ class PostController {
         return 1L
     }
 
-
     @PutMapping("/posts/{id}")
     fun updatePost(
         @PathVariable id: Long,
@@ -40,7 +39,7 @@ class PostController {
     @GetMapping("/posts/{id}")
     fun getPost(
         @PathVariable id: Long
-    ): PostDetailResponse{
+    ): PostDetailResponse {
         return PostDetailResponse(1L, "title", "content", "createdBy", "updatedBy", LocalDateTime.now().toString())
     }
 
