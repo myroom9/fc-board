@@ -23,7 +23,7 @@ Content-Type: application/json
 DELETE /localhost:8080/posts/1?createdBy=whahn
 
 ### 게시글 상세조회
-GET /localhost:8080/posts/1
+GET /localhost:8080/posts/2
 
 ### 게시글 목록조회
 GET /localhost:8080/posts?page=0&size=10&title=title&createdBy=whahn
