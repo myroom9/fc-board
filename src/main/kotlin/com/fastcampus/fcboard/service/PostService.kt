@@ -3,9 +3,9 @@ package com.fastcampus.fcboard.service
 import com.fastcampus.fcboard.exception.PostNotDeletableException
 import com.fastcampus.fcboard.exception.PostNotFoundException
 import com.fastcampus.fcboard.repository.PostRepository
-import com.fastcampus.fcboard.service.dto.PostCreateRequestDto
-import com.fastcampus.fcboard.service.dto.PostUpdateRequestDto
-import com.fastcampus.fcboard.service.dto.toEntity
+import com.fastcampus.fcboard.service.dto.*
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -36,5 +36,13 @@ class PostService(
         }
         postRepository.delete(post)
         return id
+    }
+
+    fun getPost(id: Long): PostDetailResponseDto {
+        return postRepository.findByIdOrNull(id)?.toDetailResponseDto() ?: throw PostNotFoundException("해당 게시글이 없습니다. id=$id")
+    }
+
+    fun findPageBy(pageRequest: Pageable, postSearchRequestDto: PostSearchRequestDto): Page<PostSummaryResponseDto> {
+        return postRepository.findPageBy(pageRequest, postSearchRequestDto).toSummaryResponseDto()
     }
 }

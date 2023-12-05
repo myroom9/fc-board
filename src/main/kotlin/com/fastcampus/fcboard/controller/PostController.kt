@@ -43,7 +43,7 @@ class PostController(
     fun getPost(
         @PathVariable id: Long
     ): PostDetailResponse {
-        return PostDetailResponse(1L, "title", "content", "createdBy", "updatedBy", LocalDateTime.now().toString())
+        return postService.getPost(id).toResponse()
     }
 
     @GetMapping("/posts")
@@ -51,8 +51,6 @@ class PostController(
         pageable: Pageable,
         postSearchRequest: PostSearchRequest
     ): Page<PostSummaryResponse> {
-        println("title: ${postSearchRequest.title}")
-        println("createdBy: ${postSearchRequest.createdBy}")
-        return Page.empty()
+        return postService.findPageBy(pageable, postSearchRequest.toDto()).toResponse()
     }
 }
