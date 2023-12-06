@@ -4,7 +4,6 @@ spring:
         url: jdbc:mysql://awseb-e-sjsm5xchph-stack-awsebrdsdatabase-z6bus2ept7zc.cergqkr1obpv.ap-northeast-2.rds.amazonaws.com:3306?useSSL=false&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
         username: fastcam
         password: dks4268!
-        driver-class-name: com.mysql.jdbc.Driver
     jpa:
         hibernate:
             ddl-auto: update
