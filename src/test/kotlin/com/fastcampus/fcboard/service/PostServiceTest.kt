@@ -26,53 +26,53 @@ class PostServiceTest(
 
     beforeSpec {
         postRepository.saveAll(
-             listOf(
-                 Post(
-                     title = "제목1",
-                     content = "내용1",
-                     createdBy = "whahn1"
-                 ),
-                 Post(
-                     title = "제목2",
-                     content = "내용2",
-                     createdBy = "whahn"
-                 ),
-                 Post(
-                     title = "제목3",
-                     content = "내용3",
-                     createdBy = "whahn2"
-                 ),
-                 Post(
-                     title = "제목4",
-                     content = "내용4",
-                     createdBy = "whahn"
-                 ),
-                 Post(
-                     title = "제목5",
-                     content = "내용5",
-                     createdBy = "whahn"
-                 ),
-                 Post(
-                     title = "제목6",
-                     content = "내용6",
-                     createdBy = "whahn"
-                 ),
-                 Post(
-                     title = "제목7",
-                     content = "내용7",
-                     createdBy = "whahn"
-                 ),
-                 Post(
-                     title = "제목8",
-                     content = "내용8",
-                     createdBy = "whahn"
-                 ),
-                 Post(
-                     title = "제목9",
-                     content = "내용9",
-                     createdBy = "whahn"
-                 ),
-             )
+            listOf(
+                Post(
+                    title = "제목1",
+                    content = "내용1",
+                    createdBy = "whahn1"
+                ),
+                Post(
+                    title = "제목2",
+                    content = "내용2",
+                    createdBy = "whahn"
+                ),
+                Post(
+                    title = "제목3",
+                    content = "내용3",
+                    createdBy = "whahn2"
+                ),
+                Post(
+                    title = "제목4",
+                    content = "내용4",
+                    createdBy = "whahn"
+                ),
+                Post(
+                    title = "제목5",
+                    content = "내용5",
+                    createdBy = "whahn"
+                ),
+                Post(
+                    title = "제목6",
+                    content = "내용6",
+                    createdBy = "whahn"
+                ),
+                Post(
+                    title = "제목7",
+                    content = "내용7",
+                    createdBy = "whahn"
+                ),
+                Post(
+                    title = "제목8",
+                    content = "내용8",
+                    createdBy = "whahn"
+                ),
+                Post(
+                    title = "제목9",
+                    content = "내용9",
+                    createdBy = "whahn"
+                )
+            )
         )
     }
 
@@ -233,7 +233,7 @@ class PostServiceTest(
 
         When("작성자로 검색") {
             val postPage = postService.findPageBy(PageRequest.of(0, 5), PostSearchRequestDto(createdBy = "whahn1"))
-            println("postPage = ${postPage}")
+            println("postPage = $postPage")
             then("작성자에 해당하는 게시글이 반환된다") {
                 postPage.number shouldBe 0
                 postPage.size shouldBe 5

@@ -29,5 +29,4 @@ class CustomPostRepositoryImpl : CustomPostRepository, QuerydslRepositorySupport
 
         return PageImpl(result.results, pageRequest, result.total)
     }
-
 }
