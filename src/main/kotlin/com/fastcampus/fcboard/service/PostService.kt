@@ -39,7 +39,9 @@ class PostService(
     }
 
     fun getPost(id: Long): PostDetailResponseDto {
-        return postRepository.findByIdOrNull(id)?.toDetailResponseDto() ?: throw PostNotFoundException("해당 게시글이 없습니다. id=$id")
+        return postRepository.findByIdOrNull(id)?.toDetailResponseDto() ?: throw PostNotFoundException(
+            "해당 게시글이 없습니다. id=$id"
+        )
     }
 
     fun findPageBy(pageRequest: Pageable, postSearchRequestDto: PostSearchRequestDto): Page<PostSummaryResponseDto> {

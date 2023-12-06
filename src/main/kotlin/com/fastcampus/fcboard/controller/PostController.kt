@@ -5,7 +5,6 @@ import com.fastcampus.fcboard.service.PostService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.web.bind.annotation.*
-import java.time.LocalDateTime
 
 @RestController
 class PostController(
