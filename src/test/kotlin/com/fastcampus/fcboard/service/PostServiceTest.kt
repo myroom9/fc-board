@@ -1,9 +1,11 @@
 package com.fastcampus.fcboard.service
 
+import com.fastcampus.fcboard.domain.Comment
 import com.fastcampus.fcboard.domain.Post
 import com.fastcampus.fcboard.exception.PostNotDeletableException
 import com.fastcampus.fcboard.exception.PostNotFoundException
 import com.fastcampus.fcboard.exception.PostNotUpdatableException
+import com.fastcampus.fcboard.repository.CommentRepository
 import com.fastcampus.fcboard.repository.PostRepository
 import com.fastcampus.fcboard.service.dto.PostCreateRequestDto
 import com.fastcampus.fcboard.service.dto.PostSearchRequestDto
@@ -21,7 +23,8 @@ import org.springframework.data.repository.findByIdOrNull
 @SpringBootTest
 class PostServiceTest(
     private val postService: PostService,
-    private val postRepository: PostRepository
+    private val postRepository: PostRepository,
+    private val commentRepository: CommentRepository
 ) : BehaviorSpec({
 
     beforeSpec {
@@ -205,6 +208,22 @@ class PostServiceTest(
                 shouldThrow<PostNotFoundException> {
                     postService.getPost(9999L)
                 }
+            }
+        }
+        When("댓글 추가시") {
+            commentRepository.save(Comment(content = "댓글 내용", post = saved, createdBy = "댓글 작성자"))
+            commentRepository.save(Comment(content = "댓글 내용2", post = saved, createdBy = "댓글 작성자"))
+            commentRepository.save(Comment(content = "댓글 내용3", post = saved, createdBy = "댓글 작성자"))
+            val post = postService.getPost(saved.id)
+            then("댓글이 함께 조회됨을 확인한다") {
+                post.comments.size shouldBe 3
+                post.comments[0].content shouldBe "댓글 내용"
+                post.comments[1].content shouldBe "댓글 내용2"
+                post.comments[2].content shouldBe "댓글 내용3"
+
+                post.comments[0].createdBy shouldBe "댓글 작성자"
+                post.comments[1].createdBy shouldBe "댓글 작성자"
+                post.comments[2].createdBy shouldBe "댓글 작성자"
             }
         }
     }
