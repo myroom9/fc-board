@@ -19,5 +19,4 @@ class Tag(
     @ManyToOne(fetch = FetchType.LAZY)
     var post: Post = post
         protected set
-
 }
