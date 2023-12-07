@@ -6,7 +6,8 @@ Content-Type: application/json
 {
     "title": "title",
     "content": "내용",
-    "createdBy": "createdBy"
+    "createdBy": "createdBy",
+    "tags": ["tag1", "tag2"]
 }
 
 ### 게시글 수정
@@ -16,7 +17,8 @@ Content-Type: application/json
 {
     "title": "title",
     "content": "content",
-    "updatedBy": "updatedBy"
+    "updatedBy": "updatedBy",
+    "tags": ["tag1", "tag2"]
 }
 
 ### 게시글 삭제
