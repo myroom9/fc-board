@@ -37,55 +37,55 @@ class PostServiceTest(
                     title = "제목1",
                     content = "내용1",
                     createdBy = "whahn1",
-                    tags = listOf("tag1","tag2")
+                    tags = listOf("tag1", "tag2")
                 ),
                 Post(
                     title = "제목2",
                     content = "내용2",
                     createdBy = "whahn",
-                    tags = listOf("tag1","tag2")
+                    tags = listOf("tag1", "tag2")
                 ),
                 Post(
                     title = "제목3",
                     content = "내용3",
                     createdBy = "whahn2",
-                    tags = listOf("tag1","tag2")
+                    tags = listOf("tag1", "tag2")
                 ),
                 Post(
                     title = "제목4",
                     content = "내용4",
                     createdBy = "whahn",
-                    tags = listOf("tag1","tag2")
+                    tags = listOf("tag1", "tag2")
                 ),
                 Post(
                     title = "제목5",
                     content = "내용5",
                     createdBy = "whahn",
-                    tags = listOf("tag1","tag2")
+                    tags = listOf("tag1", "tag2")
                 ),
                 Post(
                     title = "제목6",
                     content = "내용6",
                     createdBy = "whahn",
-                    tags = listOf("tag1","tag5")
+                    tags = listOf("tag1", "tag5")
                 ),
                 Post(
                     title = "제목7",
                     content = "내용7",
                     createdBy = "whahn",
-                    tags = listOf("tag1","tag5")
+                    tags = listOf("tag1", "tag5")
                 ),
                 Post(
                     title = "제목8",
                     content = "내용8",
                     createdBy = "whahn",
-                    tags = listOf("tag1","tag5")
+                    tags = listOf("tag1", "tag5")
                 ),
                 Post(
                     title = "제목9",
                     content = "내용9",
                     createdBy = "whahn",
-                    tags = listOf("tag1","tag5")
+                    tags = listOf("tag1", "tag5")
                 )
             )
         )
