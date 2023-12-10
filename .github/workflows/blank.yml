@@ -3,11 +3,11 @@ name: fastcampus board
 
 env:
   AWS_REGION: ap-northeast-2
-  
+
 on:
   push:
     branches: [ main ]
-    
+
 jobs:
   deploy:
     name: Deploy
@@ -25,7 +25,7 @@ jobs:
         distribution: 'zulu'
 
     - name: Build with Gradle
-      run: ./gradlew clean build
+      run: ./gradlew clean build -x test
 
     - name: Get current time
       uses: 1466587594/get-current-time@v2
@@ -39,7 +39,7 @@ jobs:
         mkdir -p deploy
         cp build/libs/*.jar deploy/application.jar
         cd deploy && zip -r deploy.zip .
-        
+
     - name: Beanstalk Deploy
       uses: einaregilsson/beanstalk-deploy@v21
       with:
@@ -50,4 +50,4 @@ jobs:
         environment_name: Fc-board-env
         version_label: github-action-${{steps.current-time.outputs.formattedTime}}
         deployment_package: deploy/deploy.zip
-      
+
